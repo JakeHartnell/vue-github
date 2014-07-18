@@ -18,6 +18,7 @@ window.VueGithub = Vue.extend({
     'github-issue-list': require('./github-issue-list'),
     'github-issue-accordion': require('./github-issue-accordion'),
     'github-issue-flattened': require('./github-issue-flattened'),
-    'github-label-list': require('./github-label-list')
+    'github-label-list': require('./github-label-list'),
+    'github-issue-flattened-plusdescription': require('./github-issue-flattened-plusdescription')
   }
 });
