@@ -2,8 +2,8 @@
   <li class="item" v-repeat="items" v-class="closed: state == 'closed'">
     <div class="content">
       <div class="header">
-        <img class="checkicon" v-show="state == 'closed'" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Checked-checkbox-icon.png" width="16px" height="16px">
-        <img class="checkicon" v-show="state == 'open'" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Unchecked-checkbox-icon.png" width="16px" height="16px">
+        <img class="issuecheckicon" v-show="state == 'closed'" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Checked-checkbox-icon.png" width="16px" height="16px">
+        <img class="issuecheckicon" v-show="state == 'open'" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Unchecked-checkbox-icon.png" width="16px" height="16px">
         <a href="{{html_url}}" target="_blank">
         {{title}}
         </a>
