@@ -2,13 +2,13 @@
   <li class="item" v-repeat="items" v-class="closed: state == 'closed'">
     <div class="content">
       <div class="header">
-        <i class="checkbox icon"
-          v-class="checked: state == 'closed', empty: state == 'open'"></i>
+        <img class="checkicon" v-show="state == 'closed'" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Checked-checkbox-icon.png" width="16px" height="16px">
+        <img class="checkicon" v-show="state == 'open'" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Unchecked-checkbox-icon.png" width="16px" height="16px">
         <a href="{{html_url}}" target="_blank">
         {{title}}
         </a>
-        <small class="muted">{{project}}/#{{number}}</small>
-        <div v-repeat="labels" class="ui circular label" v-style="background: '#' + color" v-attr="title: name"></div>
+        <!-- <small class="muted">{{project}}/#{{number}}</small> -->
+        <!-- <div v-repeat="labels" class="ui circular label" v-style="background: '#' + color" v-attr="title: name"></div> -->
       </div>
     </div>
   </li>
