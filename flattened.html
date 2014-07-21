@@ -33,7 +33,7 @@
       descriptions which may include vue-github markup for issue lists from
       other repositories. Sadly, there are only two sort options:
       <code>due_date</code> and <code>completeness</code>.</p>
-      <section class="ui two column grid">
+      <section class="ui one column grid">
         <div class="column">
           <h3 class="ui header">Sprints & Future Work</h3>
           <github-milestone-list-flattened
@@ -41,19 +41,6 @@
             data-direction="desc" show_due_on="false">
           </github-milestone-list-flattened>
           <div class="ui divider"></div>
-          <div class="ui fluid list">
-            <div class="item">
-              <i class="list layout basic outline icon"></i>
-              <div class="content">
-                <div class="header">Future</div>
-                <github-issue-flattened user="hypothesis" project="vision" milestone="none" v-with="labels: labels"></github-issue-flattened>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <h5 class="ui header muted">filter by label</h5>
-          <github-label-list v-with="user: user, project: project, labels: labels"></github-label-list>
         </div>
       </section>
       <h1 class="ui header">Specific Milestone</h1>
@@ -64,13 +51,9 @@
       </github-milestone-flattened>
       <h1 class="ui header">Issues with a specific label ("Roadmap" in this case)</h1>
       <p>Also completely declared via markup and with it's output build from a custom template partial.</p>
-      <github-issue-flattened user="hypothesis" project="vision" v-with="labels: ['Roadmap']" v-partial="issue-list-with-description">
+      <github-issue-flattened user="hypothesis" project="vision" v-with="labels: ['Major']" v-partial="issue-list-with-description">
       {{> issue-list-with-description}}
       </github-issue-flattened>
-      <!--h3 class="ui disabled header">Completed Milestones</h3>
-      <div v-component="github-milestone-accordion"
-        v-with="user: user, project: project" data-state="closed">
-      </div-->
     </div>
   </div>
 
@@ -79,16 +62,14 @@
       <li class="item" v-repeat="items" v-class="closed: state == 'closed'">
         <div class="content">
           <div class="header">
-            <i class="checkbox icon"
-              v-class="checked: state == 'closed', empty: state == 'open'"></i>
+            <img class="issuecheckicon" v-show="state == 'closed'" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Checked-checkbox-icon.png" width="16px" height="16px">
+            <img class="issuecheckicon" v-show="state == 'open'" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Unchecked-checkbox-icon.png" width="16px" height="16px">
             <a href="{{html_url}}" target="_blank">
             {{title}}
             </a>
-            <small class="muted">{{project}}/#{{number}}</small>
-            <div v-repeat="labels" class="ui circular label" v-style="background: '#' + color" v-attr="title: name"></div>
           </div>
           <div class="description"
-            v-if="body" v-html="body | stripComments | marked"></div>
+            v-if="body" v-html="body | truncate | marked"></div>
         </div>
       </li>
     </ul>

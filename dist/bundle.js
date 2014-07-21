@@ -5870,7 +5870,7 @@ module.exports = '<div class="ui fluid accordion">\n  <div class="item" v-if="!i
 },{}],38:[function(require,module,exports){
 arguments[4][36][0].apply(exports,arguments)
 },{"../github-issue-list":40,"./template.html":39}],39:[function(require,module,exports){
-module.exports = '<ul class="ui fluid list">\n  <li class="item" v-repeat="items" v-class="closed: state == \'closed\'">\n    <div class="content">\n      <div class="header">\n        <i class="checkbox icon"\n          v-class="checked: state == \'closed\', empty: state == \'open\'"></i>\n        <a href="{{html_url}}" target="_blank">\n        {{title}}\n        </a>\n        <small class="muted">{{project}}/#{{number}}</small>\n        <div v-repeat="labels" class="ui circular label" v-style="background: \'#\' + color" v-attr="title: name"></div>\n      </div>\n    </div>\n  </li>\n</ul>\n';
+module.exports = '<ul class="ui fluid list">\n  <li class="item" v-repeat="items" v-class="closed: state == \'closed\'">\n    <div class="content">\n      <div class="header">\n        <img class="issuecheckicon" v-show="state == \'closed\'" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Checked-checkbox-icon.png" width="16px" height="16px">\n        <img class="issuecheckicon" v-show="state == \'open\'" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/512/Very-Basic-Unchecked-checkbox-icon.png" width="16px" height="16px">\n        <a href="{{html_url}}" target="_blank">\n        {{title}}\n        </a>\n      </div>\n    </div>\n  </li>\n</ul>';
 },{}],40:[function(require,module,exports){
 var Fetchable = require('../fetchable');
 
