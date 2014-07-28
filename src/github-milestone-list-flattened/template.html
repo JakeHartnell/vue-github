@@ -10,8 +10,6 @@
       <div class="header">
         <a href="{{htmlUrl}}?milestone={{item.number}}" target="_blank">
           {{item.title}}</a>
-        <strong v-if="item.open_issues" class="ui label red" title="open issues">{{item.open_issues}}</strong>
-        <strong v-if="item.closed_issues" class="ui label" title="closed issues">{{item.closed_issues}}</strong>
         <span v-if="item.due_on && show_due_on != 'false'" class="ui label" style="float: right" title="due date">{{item.due_on | formatDate}}</span>
       </div>
       <div v-component="github-issue-flattened"
